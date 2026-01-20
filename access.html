@@ -10,12 +10,16 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-
-    const catalog = params.get("catalog_name");
-    const schema  = params.get("schema_name");
-    const table   = params.get("table_name");
-
+    
+    // Check for both underscores and camelCase
+    const catalog = params.get("catalog_name") || params.get("catalogName");
+    const schema  = params.get("schema_name")  || params.get("schemaName");
+    const table   = params.get("table_name")   || params.get("tableName");
+    
     const fullTable = [catalog, schema, table].filter(Boolean).join(".");
+
+    // This will show you exactly what Databricks is sending in the URL
+    document.getElementById("output").innerText = "Raw Query: " + window.location.search;
 
     document.getElementById("output").innerText =
       "Full table name:\n" + fullTable;
