@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Databricks Access Request</title>
+</head>
+<body>
+  <h2>Databricks Access Request</h2>
+
+  <pre id="output"></pre>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const catalog = params.get("catalog_name");
+    const schema  = params.get("schema_name");
+    const table   = params.get("table_name");
+
+    const fullTable = [catalog, schema, table].filter(Boolean).join(".");
+
+    document.getElementById("output").innerText =
+      "Full table name:\n" + fullTable;
+
+    if (fullTable) {
+      const url = "https://www.google.com/search?q=" + encodeURIComponent(fullTable);
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
+
+https://dbc-ba9f6430-6ec9.cloud.databricks.com/editor/files/613702701892521?o=1730434097056619
