@@ -1,2 +1,3 @@
 
 2026-01-21 06:36:08, mabdulghani+basicuser@abeam.com, None
+2026-01-21 06:37:05, mabdulghani+basicuser@abeam.com, catalog_sg.silver.tbl_sg_synthetic_data_ncss_entity_reject
